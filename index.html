@@ -1,36 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OOP in Java – Interactive MCQ Quiz</title>
-  <style>
-    :root{
-      --bg: #0f172a; /* slate-900 */
-      --panel: #111827; /* gray-900 */
-      --muted: #94a3b8; /* slate-400 */
-      --text: #e5e7eb; /* gray-200 */
-      --accent: #22d3ee; /* cyan-400 */
-      --accent-2: #a78bfa; /* violet-400 */
-      --danger: #ef4444; /* red-500 */
-      --success: #22c55e; /* green-500 */
-      --card: #0b1220;
-    }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(34,211,238,.15), transparent 40%),
-                  radial-gradient(900px 500px at 80% 0%, rgba(167,139,250,.12), transparent 50%),
-                  var(--bg);
-      color: var(--text);
-      min-height:100dvh;
-      display:flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .app{
-      width: min(900px, 100%);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,
+  <head>
+    <meta charset="utf-8" />
+    <title>OOP Quiz — 10 Questions</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7fafc;
+        padding: 20px;
+        color: #222;
+      }
+      .quiz-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        margin-top: 0;
+        color: #1f2937;
+      }
+      .question {
+        margin: 16px 0;
+      }
+      .question p {
+        margin: 0 0 8px 0;
+        font-weight: 600;
+      }
+      .options label {
+        display: block;
+        padding: 8px 10px;
+        margin: 6px 0;
+        background: #f3f4f6;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .options input {
+        margin-right: 8px;
+      }
+      .controls {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+      }
+      button {
+        padding: 10px 16px;
+        font-size: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      #submitBtn {
+        background: #2563eb;
+        color: white;
+      }
+      #resetBtn {
+        background: #e5e7eb;
+        color: #111;
+      }
+      #report {
+        margin-top: 22px;
+        padding: 16px;
+        border-radius: 10px;
+        display: none;
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+      }
+      .correct {
+        color: #166534;
+        font-weight: 600;
+      }
+      .wrong {
+        color: #b91c1c;
+        font-weight: 600;
+      }
+      ol {
+        padding-left: 18px;
+        margin: 10px 0;
+      }
+      .small {
+        font-size: 0.95rem;
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h2>OOP Quiz — 10 Questions</h2>
+      <form id="quizForm">
+        <div class="question">
+          <p>1. Which of the following is NOT a principle of OOP?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q1" value="a" /> Encapsulation</label
+            >
+            <label
+              ><input type="radio" name="q1" value="b" /> Polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q1" value="c" /> Abstraction</label
+            >
+            <label
+              ><input type="radio" name="q1" value="d" /> Compilation</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>2. Which feature of OOP indicates code reusability?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q2" value="a" /> Encapsulation</label
+            >
+            <label
+              ><input type="radio" name="q2" value="b" /> Inheritance</label
+            >
+            <label
+              ><input type="radio" name="q2" value="c" /> Polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q2" value="d" /> Abstraction</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>3. Which OOP concept binds data and functions together?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q3" value="a" /> Encapsulation</label
+            >
+            <label
+              ><input type="radio" name="q3" value="b" /> Inheritance</label
+            >
+            <label
+              ><input type="radio" name="q3" value="c" /> Polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q3" value="d" /> Overloading</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>
+            4. Which of the following allows multiple functions with the same
+            name but different parameters?
+          </p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a" /> Overriding</label>
+            <label
+              ><input type="radio" name="q4" value="b" /> Overloading</label
+            >
+            <label
+              ><input type="radio" name="q4" value="c" /> Abstraction</label
+            >
+            <label
+              ><input type="radio" name="q4" value="d" /> Inheritance</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>5. Which statement best describes polymorphism?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q5" value="a" /> One interface, many
+              implementations</label
+            >
+            <label
+              ><input type="radio" name="q5" value="b" /> Hiding internal
+              details</label
+            >
+            <label
+              ><input type="radio" name="q5" value="c" /> Binding data and
+              methods</label
+            >
+            <label
+              ><input type="radio" name="q5" value="d" /> Reusing code</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>6. Which keyword is used to inherit a class in Java?</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a" /> implements</label>
+            <label><input type="radio" name="q6" value="b" /> extends</label>
+            <label><input type="radio" name="q6" value="c" /> inherits</label>
+            <label><input type="radio" name="q6" value="d" /> super</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <p>7. Which of these is commonly achieved using interfaces?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q7" value="a" /> Multiple inheritance
+              (type-level)</label
+            >
+            <label
+              ><input type="radio" name="q7" value="b" /> Encapsulation</label
+            >
+            <label
+              ><input type="radio" name="q7" value="c" /> Memory
+              management</label
+            >
+            <label
+              ><input type="radio" name="q7" value="d" /> Constructor
+              chaining</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>8. Which of the following is NOT primarily an OOP language?</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a" /> Java</label>
+            <label><input type="radio" name="q8" value="b" /> Python</label>
+            <label><input type="radio" name="q8" value="c" /> C</label>
+            <label><input type="radio" name="q8" value="d" /> C++</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <p>9. Constructor overloading is an example of which polymorphism?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q9" value="a" /> Runtime
+              polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q9" value="b" /> Compile-time
+              polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q9" value="c" /> Ad-hoc
+              polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q9" value="d" /> Parametric
+              polymorphism</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>
+            10. Which OOP concept is often represented by a "has-a"
+            relationship?
+          </p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q10" value="a" /> Composition</label
+            >
+            <label
+              ><input type="radio" name="q10" value="b" /> Inheritance</label
+            >
+            <label
+              ><input type="radio" name="q10" value="c" /> Polymorphism</label
+            >
+            <label
+              ><input type="radio" name="q10" value="d" /> Abstraction</label
+            >
+          </div>
+        </div>
+
+        <div class="controls">
+          <button type="button" id="submitBtn">Submit Quiz</button>
+          <button type="button" id="resetBtn">Reset / Retake</button>
+        </div>
+      </form>
+
+      <div id="report" class="small"></div>
+    </div>
+
+    <script>
+      (function () {
+        // correct answers: letter keys
+        const answers = {
+          q1: "d",
+          q2: "b",
+          q3: "a",
+          q4: "b",
+          q5: "a",
+          q6: "b",
+          q7: "a",
+          q8: "c",
+          q9: "b",
+          q10: "a",
+        };
+
+        const submitBtn = document.getElementById("submitBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const reportDiv = document.getElementById("report");
+        const form = document.getElementById("quizForm");
+
+        function getLabelTextFor(qName, value) {
+          const input = document.querySelector(
+            `input[name="${qName}"][value="${value}"]`
+          );
+          if (!input) return value ? value.toUpperCase() : "";
+          // input is inside its label, so parentNode.textContent contains the label text
+          return input.parentNode.textContent.trim();
+        }
+
+        function submitQuiz() {
+          let score = 0;
+          const total = Object.keys(answers).length;
+          let reportHTML = "<h3>Quiz Report</h3><ol>";
+
+          for (const q in answers) {
+            const correctLetter = answers[q];
+            const checked = document.querySelector(
+              `input[name="${q}"]:checked`
+            );
+            const selected = checked ? checked.value : null;
+
+            const correctText = getLabelTextFor(q, correctLetter);
+            const selectedText = selected
+              ? getLabelTextFor(q, selected)
+              : "No answer";
+
+            if (selected && selected === correctLetter) {
+              score++;
+              reportHTML += `<li><span class="correct">Correct ✔</span> — Your answer: ${selectedText}</li>`;
+            } else {
+              reportHTML += `<li><span class="wrong">Wrong ✘</span> — Your answer: ${selectedText} — <strong>Correct:</strong> ${correctText}</li>`;
+            }
+          }
+
+          const percentage = (score / total) * 100;
+          reportHTML += `</ol><h4>Your Score: ${score}/${total} (${percentage.toFixed(
+            2
+          )}%)</h4>`;
+          reportDiv.innerHTML = reportHTML;
+          reportDiv.style.display = "block";
+          submitBtn.disabled = true;
+          // scroll to report smoothly
+          reportDiv.scrollIntoView({ behavior: "smooth" });
+        }
+
+        function resetQuiz() {
+          form.reset();
+          reportDiv.style.display = "none";
+          reportDiv.innerHTML = "";
+          submitBtn.disabled = false;
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        submitBtn.addEventListener("click", submitQuiz);
+        resetBtn.addEventListener("click", resetQuiz);
+      })();
+    </script>
+  </body>
+</html>
